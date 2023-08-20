@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="firebase.js" type="module"></script>
+    <script src="firebase.js" type="module"></script>
 </head>
 
 <body>
@@ -15,8 +15,9 @@
         <div class="title_box">
             <label class="title_txt" for="Add to agenda">Add to list</label>
             <div class="input_box">
-                <input name="Add to agenda" type="text" class="input_field" placeholder="Add a new item">
-                <span class="add_symbol">&gtcc;</span>
+                <input id="new_item_input" name="Add to agenda" type="text" class="input_field"
+                    placeholder="Add a new item">
+                <span onclick="addNewToDo()" class="add_symbol">&gtcc;</span>
             </div>
         </div>
         <div class="sub_title_box">
