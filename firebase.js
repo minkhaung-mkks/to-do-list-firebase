@@ -27,6 +27,7 @@ const AddNewToDo = () => {
     push(userAgenda, inputValue)
     let newCard = CreateAgendaCard(inputValue)
     agendaBox.append(newCard)
+    inputField.value = ''
     console.log(`${inputValue} added to the database`)
 }
 
