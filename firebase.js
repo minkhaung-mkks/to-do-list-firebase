@@ -2,7 +2,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-analytics.js";
-import { getDatabase, ref, push, set } from 'https://www.gstatic.com/firebasejs/10.2.0/firebase-database.js'
+import { getDatabase, ref, push, set, onValue } from 'https://www.gstatic.com/firebasejs/10.2.0/firebase-database.js'
 import { databaseURL } from "./secrets.js";
 import { CreateAgendaCard } from "./utlis.js";
 // import { firebaseConfig } from "./secrets.js";
@@ -25,10 +25,25 @@ const agendaBox = document.querySelector('.agenda_box')
 const AddNewToDo = () => {
     let inputValue = inputField.value
     push(userAgenda, inputValue)
-    let newCard = CreateAgendaCard(inputValue)
-    agendaBox.append(newCard)
-    inputField.value = ''
+
     console.log(`${inputValue} added to the database`)
+}
+
+onValue(userAgenda, (snapshot) => {
+    reset()
+    const data = Object.values(snapshot.val());
+    for (let i = 0; i < data.length; i++) {
+        let newCard = CreateAgendaCard(data[i])
+        agendaBox.append(newCard)
+    }
+})
+
+const reset = () => {
+    const agendaCards = document.querySelectorAll('.agenda_card')
+    agendaCards.forEach((card) => {
+        card.remove()
+    })
+    inputField.value = ''
 }
 
 inputField.addEventListener('keydown', (e) => {
