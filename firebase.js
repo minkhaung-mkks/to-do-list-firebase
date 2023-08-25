@@ -2,7 +2,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-analytics.js";
-import { getDatabase, ref, push, set, onValue } from 'https://www.gstatic.com/firebasejs/10.2.0/firebase-database.js'
+import { getDatabase, ref, push, set, onValue, remove } from 'https://www.gstatic.com/firebasejs/10.2.0/firebase-database.js'
 import { databaseURL } from "./secrets.js";
 import { CreateAgendaCard } from "./utlis.js";
 // import { firebaseConfig } from "./secrets.js";
@@ -31,9 +31,17 @@ const AddNewToDo = () => {
 
 onValue(userAgenda, (snapshot) => {
     reset()
-    const data = Object.values(snapshot.val());
+    const data = Object.entries(snapshot.val());
     for (let i = 0; i < data.length; i++) {
-        let newCard = CreateAgendaCard(data[i])
+        let currentData = data[i]
+        const id = currentData[0]
+        const text = currentData[1]
+        let newCard = CreateAgendaCard(text)
+        newCard.addEventListener('click', () => {
+            console.log(id)
+            let itemLocationInDb = ref(database, `To-Dos/${id}`)
+            remove(itemLocationInDb)
+        })
         agendaBox.append(newCard)
     }
 })
