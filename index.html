@@ -12,6 +12,13 @@
     <title>To do list</title>
     <link rel="stylesheet" href="style.css">
     <script src="firebase.js" type="module"></script>
+    <script type="text/javascript">
+        const module = {};
+    </script>
+    <script type="module">
+        import { AddNewToDo } from './firebase.js'; // Adjust the path accordingly
+        module.AddNewToDo = AddNewToDo;
+    </script>
 </head>
 
 <body>
@@ -19,17 +26,17 @@
         <div class="title_box">
             <label class="title_txt" for="Add to agenda">
                 Add to list</label>
-            <img src="./assets/img/main.png" class="capoo_img" alt="">
+            <img src="./assets/img/main.png" class="capoo_img" alt="capoo writing something">
             <div class="input_box">
                 <input id="new_item_input" name="Add to agenda" type="text" class="input_field"
                     placeholder="Add a new item">
-                <input class="add_btn" type="button" value="Add to list">
-                <span onclick="AddNewToDo()" class="add_symbol">&plus;</span>
+                <input onclick="module.AddNewToDo()" class="add_btn" type="button" value="Add to list">
+                <span onclick="module.AddNewToDo()" class="add_symbol">&plus;</span>
             </div>
         </div>
         <div class="sub_title_box">
             <h2 class="sub_title">Your current Agenda <img class="small_logo"
-                    src="./assets/favicons/android-chrome-512x512.png" alt=""></h2>
+                    src="./assets/favicons/android-chrome-512x512.png" alt="To do list icon"></h2>
         </div>
         <div class="agenda_box">
         </div>
