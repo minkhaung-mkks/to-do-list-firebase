@@ -18,11 +18,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app)
 
+const agendaBox = document.querySelector('.agenda_box')
 const userAgenda = ref(database, "To-Dos")
 const inputField = document.getElementById('new_item_input')
-const agendaBox = document.querySelector('.agenda_box')
 
-const AddNewToDo = () => {
+export const AddNewToDo = () => {
     let inputValue = inputField.value
     push(userAgenda, inputValue)
 
