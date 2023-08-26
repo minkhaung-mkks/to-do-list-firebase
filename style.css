@@ -14,6 +14,7 @@
 .title_txt {
     font-weight: bold;
     font-size: 2rem;
+    position: relative;
 }
 
 .input_box {
@@ -59,6 +60,9 @@
 
 .sub_title {
     font-weight: 600;
+    position: relative;
+    display: inline-block;
+    padding: 20px 0px;
 }
 
 .agenda_box {
@@ -86,4 +90,17 @@
 .finished_agenda {
     background-color: rgb(49, 218, 167);
     text-decoration: line-through;
+}
+
+.small_logo {
+    position: absolute;
+    top: 55%;
+    transform: translate(-0%, -50%);
+    left: 110%;
+    width: 50px;
+    object-fit: contain;
+    -webkit-transform: translate(-0%, -50%);
+    -moz-transform: translate(-0%, -50%);
+    -ms-transform: translate(-0%, -50%);
+    -o-transform: translate(-0%, -50%);
 }
