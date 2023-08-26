@@ -4,11 +4,29 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+:root {
+    --text: #0e1d25;
+    --background: #e9f2f7;
+    --primary: #9adbff;
+    --secondary: #cadae3;
+    --accent: #3cc125;
+    --text: #060b0e;
+    --background: #f4f8fa;
+    --primary: #9adbff;
+    --secondary: #e9d7ce;
+    --accent: #3cc125;
+}
+
+*::selection {
+    background-color: var(--accent);
+}
+
 .title_box {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    user-select: none;
 }
 
 .title_txt {
@@ -29,6 +47,13 @@
     height: 20px;
     outline: none;
     font-size: 1.2rem;
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
 .add_symbol {
@@ -38,9 +63,10 @@
     transform: translate(50%, -50%);
     font-size: 2rem;
     font-weight: 100;
-    background-color: aquamarine;
+    background-color: var(--primary);
     padding: 1px 15px;
-    line-height: 150%;
+    line-height: 140%;
+    height: 50px;
     text-anchor: middle;
     border-radius: 100%;
     -webkit-border-radius: 100%;
@@ -51,11 +77,14 @@
     -moz-transform: translate(50%, -50%);
     -ms-transform: translate(50%, -50%);
     -o-transform: translate(50%, -50%);
+    cursor: pointer;
+    user-select: none;
 }
 
 .sub_title_box {
     border-bottom: 1px solid black;
     margin-bottom: 20px;
+    user-select: none;
 }
 
 .sub_title {
@@ -75,12 +104,18 @@
     text-align: center;
     padding: 2px 10px;
     border-radius: 10px;
-    background-color: aliceblue;
+    background-color: var(--secondary);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     cursor: pointer;
+    user-select: none;
+}
+
+.agenda_card:hover {
+    filter: brightness(0.8);
+    -webkit-filter: brightness(0.8);
 }
 
 .agenda_txt {
@@ -90,6 +125,11 @@
 .finished_agenda {
     background-color: rgb(49, 218, 167);
     text-decoration: line-through;
+}
+
+.capoo_img {
+    user-select: none;
+    pointer-events: none;
 }
 
 .small_logo {
@@ -103,4 +143,14 @@
     -moz-transform: translate(-0%, -50%);
     -ms-transform: translate(-0%, -50%);
     -o-transform: translate(-0%, -50%);
+    pointer-events: none;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
