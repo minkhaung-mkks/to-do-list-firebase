@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
     <title>To do list</title>
     <link rel="stylesheet" href="style.css">
     <script src="firebase.js" type="module"></script>
@@ -13,7 +17,9 @@
 <body>
     <main id="web_page">
         <div class="title_box">
-            <label class="title_txt" for="Add to agenda">Add to list</label>
+            <label class="title_txt" for="Add to agenda">
+                Add to list</label>
+            <img src="./assets/img/main.png" alt="">
             <div class="input_box">
                 <input id="new_item_input" name="Add to agenda" type="text" class="input_field"
                     placeholder="Add a new item">
@@ -21,7 +27,8 @@
             </div>
         </div>
         <div class="sub_title_box">
-            <h2 class="sub_title">Your current Agenda</h2>
+            <h2 class="sub_title">Your current Agenda <img class="small_logo"
+                    src="./assets/favicons/android-chrome-512x512.png" alt=""></h2>
         </div>
         <div class="agenda_box">
         </div>
